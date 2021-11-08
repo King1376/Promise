@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="./PromiseAll.js"></script>
+<script>
+    const p1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('p1');
+        }, 1000)
+    })
+    const p2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('p2');
+        }, 10)
+    })
+    // const p3 = Promise.reject('king-1376')
+    const res = promiseAll([p1,p2])
+    const res1 = Promise.all([p1,p2])
+    console.log(res, 'res\n');
+    console.log(res1, 'res1');
+</script>
