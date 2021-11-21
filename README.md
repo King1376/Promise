@@ -5,3 +5,5 @@
     fulfilled的Promise实例
 - 4. 只要有一个Promise实例失败，则它的结果也是失败的
 - 5. 返回的Promise实例数组不是按照Promise实例完成的顺序，而是参数的顺序返回的
+
+# 测试用例

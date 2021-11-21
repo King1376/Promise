@@ -1,33 +1,30 @@
-
-/**
- * 
- * @param {迭代器, 数组、Set、Map} iterable 
- * @returns 返回一个Promise对象
- */
-const promiseAll = iterable => {
-    // 1. 返回Promise对象
+function kAll(iterable) {
+    // 返回一个Promise对象
     return new Promise((resolve, reject) => {
         try {
-            // 2. 同义转换成数组
+            // 先把迭代器转换成数组
             const list = [...iterable]
             const result = []
             let count = 0
             if(!list.length) {
                 resolve(result)
             }
-           // 3. 需要原属组的顺序返回，所以根据它的索引来插入数据
             list.forEach((item, idx) => {
-                Promise.resolve(item)
-                .then(res => {
+                // 为了保证数组的每一项都是Promise对象，先把Promise.resolve()转换成
+                // Promise对象，在进行遍历
+                Promise.resolve(item).then(res => {
+                    // 为了保证原来顺序，通过索引来插值
                     result[idx] = res
                     if(list.length === ++count) {
                         resolve(result)
                     }
-                })
-                .catch(error => reject(error))
+                }).catch(error => reject(error))
             })
         } catch (error) {
             reject(error)
         }
+        
     })
 }
+// 挂在Promise上
+Promise.kAll = kAll
