@@ -40,6 +40,6 @@
     const params = [p1, p2, p4, p5]
     // const params = [1,null,undefined, {},new Set()]
     const p = Promise.all(params)
-    const myP = Promise.kAll(params)
+    const myP = Promise.promiseAll(params)
     console.log(p, '***********\n', myP);
 </script>
