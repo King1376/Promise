@@ -41,5 +41,6 @@
     // const params = [1,null,undefined, {},new Set()]
     const p = Promise.all(params)
     const myP = Promise.promiseAll(params)
-    console.log(p, '***********\n', myP);
+    const mydPr = Promise.race(params)
+    console.log(p, '***********\n', myP, mydPr);
 </script>
