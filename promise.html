@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>实现Promise</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Promise</h1>
-</body>
+  </body>
 </html>
 <script src="./gesarPromise.js"></script>
 <script>
-    const p = new Promise(()=>console.log('hh'))
-    const gp = new GesarPromise((resolve, reject) => {
-        console.log('console.log')
-        // resolve('gesar value')
-        reject('reject')
-    })
-    console.log(p, gp);
+//   const p = new Promise(() => console.log(1));
+  const gp = new GesarPromise((resolve, reject) => {
+      setTimeout(() => {
+          resolve("失败！！！执行了reject");
+      }, 3000)
+  })
+  .then(
+    (res) => {
+      console.log("then value:", res,bbb);
+    },
+    (error) => console.log("失败原因：", error)
+  );
+  // .catch((err) => console.log("catch 捕获：", err));
+//   console.log(p, gp, "**");
+console.log('同步任务')
 </script>
