@@ -1,1 +1,1 @@
-# 手写Promise
+# 实现Promise功能
